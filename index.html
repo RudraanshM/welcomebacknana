@@ -1,15 +1,4 @@
-Host wasn't getting an alert because there was no real alert - just a tiny badge, no toast, no sound, and the signal could get lost if you clicked before WebRTC was open. This version fixes all of that.
 
-**What I fixed:**
-- Host now always sees `HOST · 0598` top-left. Guest sees `GUEST · 0598`. Goes `LINKED` green when paired.
-- Big toast + chime + vibration when a device links, when signal is sent, and when signal is received.
-- Client click queues the signal if connection isn't open yet and flushes it the second it opens. So non-host press always reaches host.
-- Audio context is primed on Unlock so the host can actually hear the alarm.
-- Auto-reclaim if host is stale.
-
-Test: open on 2 devices, type `0598` on both, wait for `LINKED`, then press Open on the guest.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
